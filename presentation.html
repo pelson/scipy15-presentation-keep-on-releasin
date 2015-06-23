@@ -1,235 +1,235 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Keep on releasin': continous delivery for open source</title>
-		<meta name="description" content="">
-		<meta name="author" content="Philip Elson">
+<head>
+  <meta charset="utf-8">
+  <title>Keep on releasin': continous delivery for open source</title>
+  <meta name="description" content="">
+  <meta name="author" content="Philip Elson">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="CDN/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="CDN/MetOffice.reveal.js/theme.css" id="theme">
+  <link rel="stylesheet" href="presentation.css">
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="CDN/reveal.js/lib/css/zenburn.css">
+  <!-- Printing and PDF exports -->
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<link rel="stylesheet" href="CDN/reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="CDN/MetOffice.reveal.js/theme.css" id="theme">
-		<link rel="stylesheet" href="presentation.css">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="CDN/reveal.js/lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'CDN/reveal.js/css/print/pdf.css' : 'CDN/reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="CDN/reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section  class="title-slide">
-					<h1>Keep on releasin'</h1>
-
-					<h3>Continuous delivery for open source</h3>
-					<div align="center" class="about">
-						Scipy 2015<br />
-						<small><a href="http://pelson.github.io">
-						Philip Elson</a> / <a href="http://twitter.com/pypelson">@pypelson</a></small>
-					</div>
-				</section>
+  <script>
+	var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? 'CDN/reveal.js/css/print/pdf.css' : 'CDN/reveal.js/css/print/paper.css';
+                        document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="CDN/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title-slide">
+        <h1>Keep on releasin'</h1>
+        <h3>Continuous delivery for open source</h3>
+        <div align="center" class="about">
+          Scipy 2015<br>
+          <small><a href="http://pelson.github.io">Philip Elson</a>
+          / <a href="http://twitter.com/pypelson">@pypelson</a></small>
+        </div>
+      </section>
 <!--
-				<section>
-					<h1>History of forecasting the weather...</h1>
-					<p>
-					</p>
-				</section>
+                                <section>
+                                        <h1>History of forecasting the weather...</h1>
+                                        <p>
+                                        </p>
+                                </section>
 
-				<section>
-					<h1>Why software is like the weather...</h1>
-					<p>
-					</p>
-				</section>
+                                <section>
+                                        <h1>Why software is like the weather...</h1>
+                                        <p>
+                                        </p>
+                                </section>
 -->
-
-				<section>
-				<section>
-					<h1>Continuous Delivery</h1>
-
-<blockquote cite="http://martinfowler.com/bliki/ContinuousDelivery.html">
-a software development discipline where you build software in such a way that the software can be released to production at any time
-<cite>Martin Fowler</cite>
-</blockquote>
-
-					<aside class="notes">
-						- The principles of continous integration include "Make it Easy for Anyone to Get the Latest Executable" and "Automate Deployment"....
-					</aside>
-				</section>
-				<section>
-					<h1>Benefits</h1>
-<ul style="margin-top: 50px; clear: both;">
-<li class="fragment">Reduced Deployment Risk</li>
-<li class="fragment">Believable Progress</li>
-<li class="fragment">User Feedback</li>
-<li class="fragment">Community involvement</li>
-</ul>
-
-					<aside class="notes">
-						- Reduced deployment risk: since you are deploying smaller changes, there's less to go wrong and it's easier to fix should a problem appear.
- 						- Believable Progress: many folks track progress by tracking work done. If "done" means "developers declare it to be done" that's much less believable than if it's deployed into a production (or production-like) environment.
-						- User Feedback: the biggest risk to any software effort is that you end up building something that isn't useful. The earlier and more frequently you get working software in front of real users, the quicker you get feedback to find out how valuable it really is (particularly if you use ObservedRequirements).
-						- Community involvement: (no evidence). If a user can see that a small change has an quick/immediate impact on documentation or feature, they will be more likely to contribute again next time. If it takes a year to see the benefits, why bother?
-					</aside>
-				</section>
-				<section>
-					<h1>Downsides</h1>
-<ul style="margin-top: 50px; clear: both;">
-<li class="fragment">Automation of releases</li>
-<li class="fragment">Lots of releases</li>
-</ul>
-					<aside class="notes">
-						- Automation of releases: For some packages, a release takes a huge amount of effort. All of that needs to be automated for CD. This is also one of the benefits - all of that done work in the act of releasing will be time saved in future releases.
-						- Lots of relases: Communicating these releases. Packaging. Storage of packages.
-					</aside>
-				</section>
-
-				<section>
-					<h1>Why I care</h1>
-<ul style="margin-top: 50px; clear: both;">
-<li class="fragment">Cartopy - 
-v0.10.0 2014-01-17
-v0.11.0 2014-06-19
-v0.11.1 2014-06-27
-v0.11.2 2014-08-22
-v0.12.0 2015-04-14</li>
-<li class="fragment">Iris -
-v1.6.0 2014-01-24
-v1.7.0 2014-07-04
-v1.7.1 2014-07-31
-v1.7.2 2014-10-20
-v1.7.3 2014-12-16
-v1.7.4 2015-04-15
-v1.8.0 2015-04-14</li>
-<li class="fragment">Matplotlib -
-v1.2.0 2012-11-08
-v1.2.1 2013-03-26
-v1.3.0 2013-07-31
-v1.3.1 2013-10-10
-v1.4.0 2014-08-25
-v1.4.1 2014-10-18
-v1.4.2 2014-10-22
-v1.4.3 2015-02-15</li>
-</ul>
-					<aside class="notes">
-						- git tag | xargs -i git log -1 --format="{} %ad" {} --date=short
-					</aside>
-				</section>
-
-				</section>
-
-				<section>
-					<h1>How can we deploy packages automatically?</h1>
-<br />
-	<p class="fragment" data-fragment-index=1>For pure python packages, simply*:</p>
-
-	<pre class="fragment" data-fragment-index=1><code>
+      <section>
+        <section>
+          <h1>Continuous Delivery</h1>
+          <blockquote cite="http://martinfowler.com/bliki/ContinuousDelivery.html">
+            a software development discipline where you build
+            software in such a way that the software can be
+            released to production at any time <cite>Martin
+            Fowler</cite>
+          </blockquote>
+          <aside class="notes">
+            - The principles of continous integration include "Make
+            it Easy for Anyone to Get the Latest Executable" and
+            "Automate Deployment"....
+          </aside>
+        </section>
+        <section>
+          <h1>Benefits</h1>
+          <ul style="margin-top: 50px; clear: both;">
+            <li class="fragment">Reduced Deployment Risk</li>
+            <li class="fragment">Believable Progress</li>
+            <li class="fragment">User Feedback</li>
+            <li class="fragment">Community involvement</li>
+          </ul>
+          <aside class="notes">
+            - Reduced deployment risk: since you are deploying
+            smaller changes, there's less to go wrong and it's
+            easier to fix should a problem appear. - Believable
+            Progress: many folks track progress by tracking work
+            done. If "done" means "developers declare it to be
+            done" that's much less believable than if it's deployed
+            into a production (or production-like) environment. -
+            User Feedback: the biggest risk to any software effort
+            is that you end up building something that isn't
+            useful. The earlier and more frequently you get working
+            software in front of real users, the quicker you get
+            feedback to find out how valuable it really is
+            (particularly if you use ObservedRequirements). -
+            Community involvement: (no evidence). If a user can see
+            that a small change has an quick/immediate impact on
+            documentation or feature, they will be more likely to
+            contribute again next time. If it takes a year to see
+            the benefits, why bother?
+          </aside>
+        </section>
+        <section>
+          <h1>Downsides</h1>
+          <ul style="margin-top: 50px; clear: both;">
+            <li class="fragment">Automation of releases</li>
+            <li class="fragment">Lots of releases</li>
+          </ul>
+          <aside class="notes">
+            - Automation of releases: For some packages, a release
+            takes a huge amount of effort. All of that needs to be
+            automated for CD. This is also one of the benefits -
+            all of that done work in the act of releasing will be
+            time saved in future releases. - Lots of relases:
+            Communicating these releases. Packaging. Storage of
+            packages.
+          </aside>
+        </section>
+        <section>
+          <h1>Why I care</h1>
+          <ul style="margin-top: 50px; clear: both;">
+            <li class="fragment">Cartopy - v0.10.0 2014-01-17
+            v0.11.0 2014-06-19 v0.11.1 2014-06-27 v0.11.2
+            2014-08-22 v0.12.0 2015-04-14</li>
+            <li class="fragment">Iris - v1.6.0 2014-01-24 v1.7.0
+            2014-07-04 v1.7.1 2014-07-31 v1.7.2 2014-10-20 v1.7.3
+            2014-12-16 v1.7.4 2015-04-15 v1.8.0 2015-04-14</li>
+            <li class="fragment">Matplotlib - v1.2.0 2012-11-08
+            v1.2.1 2013-03-26 v1.3.0 2013-07-31 v1.3.1 2013-10-10
+            v1.4.0 2014-08-25 v1.4.1 2014-10-18 v1.4.2 2014-10-22
+            v1.4.3 2015-02-15</li>
+          </ul>
+          <aside class="notes">
+            - git tag | xargs -i git log -1 --format="{} %ad" {}
+            --date=short
+          </aside>
+        </section>
+      </section>
+      <section>
+        <h1>How can we deploy packages automatically?</h1><br>
+        <p class="fragment" data-fragment-index="1">For pure python
+        packages, simply*:</p>
+        <pre class="fragment" data-fragment-index="1">
+<code>
 $> cat travis.yml
 ...
 
 after_sucess:
    pip login sdist upload
-</code></pre> 
+</code>
+</pre>
+        <aside class="notes">
+          There is configuration needed to setup authentication to
+          pypi - this can be done with Travis CI environment
+          secrets. This will be covered in Damian Avila's talk
+          (following this one).
+        </aside>
+      </section>
+      <section>
+        <section>
+          <h1>Complexity of continuous deployment</h1>
+          <p>There are some things we need to think about:</p>
+        </section>
+        <section>
+          <h1>Versioning</h1>
+          <aside class="notes">
+            We want to be able to uniquely reference each change,
+            and maintain sortability (so that newer versions get
+            installed over older ones). Additionally, we want to
+            conform to PEP0440. Although we need automatic
+            versioning, we still want to explicitly tag versions
+            which represent a complete cycle - for users who want
+            to opt out of CD releases, the tagged versions are the
+            versions that the development team recommend in this
+            case. and ensure that from pip, unless explicitly
+            stated by the user, only tagged versions are installed.
+          </aside>
+        </section>
+        <section>
+          <h1>Toggling changes</h1>
+          <aside class="notes">
+            http://martinfowler.com/bliki/FeatureToggle.html There
+            are two cases to think about: - incomplete
+            functionality - intrusive changes
+          </aside>
+        </section>
+      </section>
+      <section>
+        <h1>How can we deploy packages automatically</h1>
+        <aside class="notes">
+          Built
+        </aside>
+      </section>
+      <section>
+        <h1>Where next?</h1>
+        <p>Read:
+        http://martinfowler.com/articles/continuousIntegration.html
+        http://martinfowler.com/books/continuousDelivery.html</p>
+      </section>
+      <section class="questions-slide">
+        <h1>Questions or insights?</h1>
+      </section>
+    </div>
+    <div class="footer">
+      © British Crown Copyright 2015. Met Office | <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/">
+      Open Government License (UK)</a>
+    </div>
+  </div>
+  <script src="CDN/reveal.js/lib/js/head.min.js">
+  </script> 
+  <script src="CDN/reveal.js/js/reveal.js">
+  </script> 
+  <script src="CDN/jquery.js">
+  </script> 
+  <script src="CDN/MetOffice.reveal.js/MetOffice.reveal.js">
+  </script> 
+  <script>
+                // Full list of configuration options available at:
+                // https://github.com/hakimel/reveal.js#configuration
+                Reveal.initialize({
+                        controls: true,
+                        progress: true,
+                        history: true,
+                        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-					<aside class="notes">
-						There is configuration needed to setup authentication to pypi - this can be done with Travis CI environment secrets.
-						This will be covered in Damian Avila's talk (following this one).
-					</aside>
-				</section>
-				<section>
-					<section>
-						<h1>Complexity of continuous deployment</h1>
-						<p>
-						There are some things we need to think about:
-						</p>
-					</section>
-					<section>
-						<h1>Versioning</h1>
-						<p>
-						</p>
-					<aside class="notes">
-					We want to be able to uniquely reference each change, and maintain sortability (so that newer versions get installed over older ones). Additionally, we want to conform to PEP0440.
-					Although we need automatic versioning, we still want to explicitly tag versions which represent a complete cycle - for users who want to opt out of CD releases, the tagged versions are the versions that the development team recommend in this case.
-					
-and ensure that from pip, unless explicitly stated by the user, only tagged versions are installed.
-					</aside>
-					</section>
-					<section>
-						<h1>Toggling changes</h1>
-						<p>
-
-						</p>
-					<aside class="notes">
-						http://martinfowler.com/bliki/FeatureToggle.html
-						
-						There are two cases to think about:
-							- incomplete functionality
-							- intrusive changes
-					</aside>
-					</section>
-                                </section>
-				<section>
-					<h1>How can we deploy packages automatically</h1>
-					<p>
-					</p>
-					<aside class="notes">
-						Built
-					</aside>
-				</section>
-				<section>
-					<h1>Where next?</h1>
-					<p>
-					Read: http://martinfowler.com/articles/continuousIntegration.html
-					http://martinfowler.com/books/continuousDelivery.html
-					</p>
-				</section>
-				<section  class="questions-slide">
-				<h1>Questions or insights?</h1>
-				</section>
-			</div>
-                         <div class="footer">
-                                   &copy; British Crown Copyright 2015. Met Office | <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/">Open Government License (UK)</a>
-                         </div>
-		</div>
-
-		<script src="CDN/reveal.js/lib/js/head.min.js"></script>
-		<script src="CDN/reveal.js/js/reveal.js"></script>
-		<script src="CDN/jquery.js"></script>
-		<script src="CDN/MetOffice.reveal.js/MetOffice.reveal.js"></script>
-		<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			history: true,
-			transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-			// Optional reveal.js plugins
-			dependencies: [
-				{ src: 'CDN/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: 'CDN/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'CDN/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'CDN/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: 'CDN/reveal.js/plugin/zoom-js/zoom.js', async: true },
-				{ src: 'CDN/reveal.js/plugin/notes/notes.js', async: true }
-			]
-		});
+                        // Optional reveal.js plugins
+                        dependencies: [
+                                { src: 'CDN/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                                { src: 'CDN/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                                { src: 'CDN/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                                { src: 'CDN/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                                { src: 'CDN/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                                { src: 'CDN/reveal.js/plugin/notes/notes.js', async: true }
+                        ]
+                });
 
         Reveal.addEventListener('ready', AddBranding);
-		</script>
-	</body>
+  </script>
+</body>
 </html>
