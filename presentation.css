@@ -1,0 +1,38 @@
+.reveal blockquote {
+clear: both;
+font-family: Georgia, serif;
+font-size: 24px;
+font-style: italic;
+width: 60%;
+
+padding: 0.3em 50px;
+line-height: 1.45;
+position: relative;
+color: #383838;
+  text-align: left;
+border: none;
+border-left: 10px solid #ccc;
+
+}
+
+.reveal blockquote:before {
+display: block;
+content: "\201C";
+font-size: 80px;
+position: absolute;
+left: 0px;
+top: -20px;
+color: #7a7a7a;
+}
+
+.reveal blockquote cite {
+color: #999999;
+font-size: 14px;
+display: block;
+margin-top: 5px;
+text-align: right;
+}
+ 
+blockquote cite:before {
+content: "\2014 \2009";
+}
