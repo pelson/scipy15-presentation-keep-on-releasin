@@ -36,3 +36,9 @@ text-align: right;
 blockquote cite:before {
 content: "\2014 \2009";
 }
+
+.clear {
+clear: both;
+}
+
+.reveal sup { vertical-align: top; font-size: 0.5em; }

@@ -14,7 +14,6 @@
   <!-- Code syntax highlighting -->
   <link rel="stylesheet" href="CDN/reveal.js/lib/css/zenburn.css">
   <!-- Printing and PDF exports -->
-
   <script>
 	var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
@@ -77,24 +76,28 @@
           <aside class="notes">
             - Reduced deployment risk: since you are deploying
             smaller changes, there's less to go wrong and it's
-            easier to fix should a problem appear. - Believable
-            Progress: many folks track progress by tracking work
+            easier to fix should a problem appear.
+
+            - Believable Progress: many folks track progress by tracking work
             done. If "done" means "developers declare it to be
             done" that's much less believable than if it's deployed
-            into a production (or production-like) environment. -
-            User Feedback: the biggest risk to any software effort
+            into a production (or production-like) environment. 
+
+            - User Feedback: the biggest risk to any software effort
             is that you end up building something that isn't
             useful. The earlier and more frequently you get working
             software in front of real users, the quicker you get
             feedback to find out how valuable it really is
-            (particularly if you use ObservedRequirements). -
-            Community involvement: (no evidence). If a user can see
+            (particularly if you use ObservedRequirements). 
+
+            - Community involvement: (no evidence). If a user can see
             that a small change has an quick/immediate impact on
             documentation or feature, they will be more likely to
             contribute again next time. If it takes a year to see
             the benefits, why bother?
           </aside>
         </section>
+
         <section>
           <h1>Downsides</h1>
           <ul style="margin-top: 50px; clear: both;">
@@ -106,11 +109,12 @@
             takes a huge amount of effort. All of that needs to be
             automated for CD. This is also one of the benefits -
             all of that done work in the act of releasing will be
-            time saved in future releases. - Lots of relases:
-            Communicating these releases. Packaging. Storage of
+            time saved in future releases.
+            - Lots of relases: Communicating these releases. Packaging. Storage of
             packages.
           </aside>
         </section>
+
         <section>
           <h1>Why I care</h1>
           <ul style="margin-top: 50px; clear: both;">
@@ -126,15 +130,15 @@
             v1.4.3 2015-02-15</li>
           </ul>
           <aside class="notes">
-            - git tag | xargs -i git log -1 --format="{} %ad" {}
-            --date=short
+            - git tag | xargs -i git log -1 --format="{} %ad" {} --date=short
           </aside>
         </section>
       </section>
+
       <section>
         <h1>How can we deploy packages automatically?</h1><br>
         <p class="fragment" data-fragment-index="1">For pure python
-        packages, simply*:</p>
+        packages, simply<sup>&dagger;</sup>:</p>
         <pre class="fragment" data-fragment-index="1">
 <code>
 $> cat travis.yml
@@ -144,6 +148,9 @@ after_sucess:
    pip login sdist upload
 </code>
 </pre>
+
+<p class="fragment"><small><sup>&dagger;</sup> There are a few other things that need to be dealt with. An example project can be found at <a href="https://github.com/pelson/continuous_delivery_pure_python">pelson/continuous_delivery_pure_python</a>.</small></p>
+
         <aside class="notes">
           There is configuration needed to setup authentication to
           pypi - this can be done with Travis CI environment
@@ -153,44 +160,73 @@ after_sucess:
       </section>
       <section>
         <section>
-          <h1>Complexity of continuous deployment</h1>
+          <h1>Complexities of continuous deployment</h1>
           <p>There are some things we need to think about:</p>
+          <ul>
+            <li class="fragment">Versioning</li>
+            <li class="fragment">Toggling major changes</li>
+          </ul>
         </section>
-        <section>
+      <section>
           <h1>Versioning</h1>
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning.svg">
+	 <p class="fragment clear" >But we don't want to do this by hand...</p>
+	 <p class="fragment" >Versioneer + PR to the rescue</p>
+
           <aside class="notes">
             We want to be able to uniquely reference each change,
             and maintain sortability (so that newer versions get
             installed over older ones). Additionally, we want to
-            conform to PEP0440. Although we need automatic
+            conform to PEP0440.
+	    Although we need automatic
             versioning, we still want to explicitly tag versions
             which represent a complete cycle - for users who want
             to opt out of CD releases, the tagged versions are the
             versions that the development team recommend in this
-            case. and ensure that from pip, unless explicitly
+            case.
+            and ensure that from pip, unless explicitly
             stated by the user, only tagged versions are installed.
           </aside>
         </section>
+
         <section>
-          <h1>Toggling changes</h1>
+          <h1>Toggling major changes</h1>
+	  <ul><li class="fragment">Keep old and new functionality in the same codebase, and toggle between the two, e.g.:
+          <pre class="fragment">
+		<code>
+from __future__ import print_function
+		</code>
+	 </pre>
+	</li>
+	</ul>
           <aside class="notes">
-            http://martinfowler.com/bliki/FeatureToggle.html There
+            http://martinfowler.com/bliki/FeatureToggle.html 
+	There
             are two cases to think about: - incomplete
             functionality - intrusive changes
           </aside>
         </section>
       </section>
+
       <section>
-        <h1>How can we deploy packages automatically</h1>
+        <h1>Deploying binary packages automatically</h1>
+	<p class="clear">To build binary packages, we need access to Windows, OSX and Linux machines.</p>
+	<p class="fragment">Free for Open Source: AppVeyor, TravisCI and CircleCI provide these operating systems respectively.</p>
+	<p class="fragment">Binstar-build is also positioning itself in this space.</p>
         <aside class="notes">
-          Built
+          Building binaries.
         </aside>
       </section>
       <section>
         <h1>Where next?</h1>
-        <p>Read:
+	<p class="clear">Do I think we should adopt continous delivery in our open source projects?</p>
+	<p class="fragment" style="color: gray;">No<span class="fragment">, but we should dramatically shorten our release cycles with automation.</span></p>
+
+	<aside class="notes">        
+	Read:
         http://martinfowler.com/articles/continuousIntegration.html
         http://martinfowler.com/books/continuousDelivery.html</p>
+	</aside>
       </section>
       <section class="questions-slide">
         <h1>Questions or insights?</h1>
@@ -209,6 +245,7 @@ after_sucess:
   </script> 
   <script src="CDN/MetOffice.reveal.js/MetOffice.reveal.js">
   </script> 
+  
   <script>
                 // Full list of configuration options available at:
                 // https://github.com/hakimel/reveal.js#configuration
