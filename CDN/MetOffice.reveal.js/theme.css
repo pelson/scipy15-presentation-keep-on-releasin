@@ -10,7 +10,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal {
   font-family: 'Arial', Helvetica, sans-serif;
-  font-size: 38px;
+  font-size: 24px;
   font-weight: normal;
   color: #222; 
   background-color: #fff;
@@ -46,16 +46,16 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal h1 {
   padding-top: 0.8em;
-  font-size: 1.2em; }
+  font-size: 2em; }
 
 .reveal h2 {
-  font-size: 1.1em; }
+  font-size: 1.5em; }
 
 .reveal h3 {
-  font-size: 1em; }
+  font-size: 1.2em; }
 
 .reveal h4 {
-  font-size: 0.9em; }
+  font-size: 1.1em; }
 
 .reveal h1 {
   text-shadow: none; }

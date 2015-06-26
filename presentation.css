@@ -1,7 +1,6 @@
 .reveal blockquote {
 clear: both;
 font-family: Georgia, serif;
-font-size: 24px;
 font-style: italic;
 width: 60%;
 
@@ -27,7 +26,7 @@ color: #7a7a7a;
 
 .reveal blockquote cite {
 color: #999999;
-font-size: 14px;
+font-size: 0.8em;
 display: block;
 margin-top: 5px;
 text-align: right;

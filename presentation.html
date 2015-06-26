@@ -32,7 +32,7 @@
         <h1>Keep on releasin'</h1>
         <h3>Continuous delivery for open source</h3>
         <div align="center" class="about">
-          Scipy 2015<br>
+          SciPy'15<br>
           <small><a href="http://pelson.github.io">Philip Elson</a>
           / <a href="http://twitter.com/pypelson">@pypelson</a></small>
         </div>
@@ -59,6 +59,14 @@
             released to production at any time <cite>Martin
             Fowler</cite>
           </blockquote>
+        </section>
+        <section>
+          <h1>Continuous Delivery</h1>
+	  <p class="clear">Driving principles:</p>
+          <ul>
+            <li class="fragment">Make it easy for anybody to get built executables from the HEAD of a repository</li>
+            <li class="fragment">Automate deployment</li>
+          </ul>
           <aside class="notes">
             - The principles of continous integration include "Make
             it Easy for Anyone to Get the Latest Executable" and
@@ -66,31 +74,30 @@
           </aside>
         </section>
         <section>
-          <h1>Benefits</h1>
-          <ul style="margin-top: 50px; clear: both;">
-            <li class="fragment">Reduced Deployment Risk</li>
-            <li class="fragment">Believable Progress</li>
-            <li class="fragment">User Feedback</li>
-            <li class="fragment">Community involvement</li>
+          <h1>Why?</h1>
+          <p class="clear">
+
+          <h3 class="fragment" data-fragment-index="1">Pros</h3>
+          <ul>
+            <li class="fragment" data-fragment-index="1">Simplified (trivial) releases</li>
+            <li class="fragment" data-fragment-index="1">Fast user feedback</li>
+            <li class="fragment" data-fragment-index="1">Community contributions</li>
           </ul>
+	  
+          <h3 class="fragment" data-fragment-index="2" style="margin-top: 1.5em;">Cons</h3>
+          <ul class="fragment" data-fragment-index="2">
+            <li>Requires build automation</li>
+            <li>Many build artefacts</li>
+          </ul>
+	  </p>
           <aside class="notes">
-            - Reduced deployment risk: since you are deploying
-            smaller changes, there's less to go wrong and it's
-            easier to fix should a problem appear.
-
-            - Believable Progress: many folks track progress by tracking work
-            done. If "done" means "developers declare it to be
-            done" that's much less believable than if it's deployed
-            into a production (or production-like) environment. 
-
-            - User Feedback: the biggest risk to any software effort
+            - User feedback: the biggest risk to any software effort
             is that you end up building something that isn't
             useful. The earlier and more frequently you get working
             software in front of real users, the quicker you get
-            feedback to find out how valuable it really is
-            (particularly if you use ObservedRequirements). 
+            feedback to find out how valuable it really is. 
 
-            - Community involvement: (no evidence). If a user can see
+            - Community contributions: If a user can see
             that a small change has an quick/immediate impact on
             documentation or feature, they will be more likely to
             contribute again next time. If it takes a year to see
@@ -99,38 +106,18 @@
         </section>
 
         <section>
-          <h1>Downsides</h1>
-          <ul style="margin-top: 50px; clear: both;">
-            <li class="fragment">Automation of releases</li>
-            <li class="fragment">Lots of releases</li>
-          </ul>
-          <aside class="notes">
-            - Automation of releases: For some packages, a release
-            takes a huge amount of effort. All of that needs to be
-            automated for CD. This is also one of the benefits -
-            all of that done work in the act of releasing will be
-            time saved in future releases.
-            - Lots of relases: Communicating these releases. Packaging. Storage of
-            packages.
-          </aside>
-        </section>
-
-        <section>
           <h1>Why I care</h1>
-          <ul style="margin-top: 50px; clear: both;">
-            <li class="fragment">Cartopy - v0.10.0 2014-01-17
-            v0.11.0 2014-06-19 v0.11.1 2014-06-27 v0.11.2
-            2014-08-22 v0.12.0 2015-04-14</li>
-            <li class="fragment">Iris - v1.6.0 2014-01-24 v1.7.0
-            2014-07-04 v1.7.1 2014-07-31 v1.7.2 2014-10-20 v1.7.3
-            2014-12-16 v1.7.4 2015-04-15 v1.8.0 2015-04-14</li>
-            <li class="fragment">Matplotlib - v1.2.0 2012-11-08
-            v1.2.1 2013-03-26 v1.3.0 2013-07-31 v1.3.1 2013-10-10
-            v1.4.0 2014-08-25 v1.4.1 2014-10-18 v1.4.2 2014-10-22
-            v1.4.3 2015-02-15</li>
+	 <p class="clear">
+          <ul  style="margin-left: 6em;">
+            <li class="fragment" data-fragment-index="1">cartopy - 2 minor releases / 15 months</li>
+            <li class="fragment" data-fragment-index="1">Iris - 2 minor releases / 16 months</li>
+            <li class="fragment" data-fragment-index="1">matplotlib - 2 minor releases / 21 months</li>
+
           </ul>
+	  </p>
+	  <p class="fragment">I want the SciPy community to focus on the features that users care about.</p>
           <aside class="notes">
-            - git tag | xargs -i git log -1 --format="{} %ad" {} --date=short
+            - Comes from git tags found with: "git tag | xargs -i git log -1 --format="{} %ad" {} --date=short"
           </aside>
         </section>
       </section>
@@ -141,15 +128,15 @@
         packages, simply<sup>&dagger;</sup>:</p>
         <pre class="fragment" data-fragment-index="1">
 <code>
-$> cat travis.yml
+$> cat .travis.yml
 ...
 
 after_sucess:
-   pip login sdist upload
+   python setup.py register sdist bdist_wheel upload
 </code>
 </pre>
 
-<p class="fragment"><small><sup>&dagger;</sup> There are a few other things that need to be dealt with. An example project can be found at <a href="https://github.com/pelson/continuous_delivery_pure_python">pelson/continuous_delivery_pure_python</a>.</small></p>
+<p class="fragment"><sup>&dagger;</sup> There are a few other things that need to be dealt with. An example project can be found at <a href="https://github.com/pelson/continuous_delivery_pure_python">pelson/continuous_delivery_pure_python</a>.</p>
 
         <aside class="notes">
           There is configuration needed to setup authentication to
@@ -169,20 +156,19 @@ after_sucess:
         </section>
       <section>
           <h1>Versioning</h1>
-	 <img class="current-visible" style="position: absolute;" src="images/git_versioning_1.svg">
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_2.svg">
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_3.svg">
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_4.svg">
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_5.svg">
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_6.svg">
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_7.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_1.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_2.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_3.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_4.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_5.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_6.svg">
+	 <img class="fragment" style="position: absolute;" src="images/git_versioning_7.svg">
       </section>
       <section>
           <h1>Versioning</h1>
-	 <p class="clear">But we don't want to do this by hand...</p>
-	 <p class="fragment" >
+	 <p>
 		<a href="https://github.com/warner/python-versioneer">Versioneer</a> +
-		<a href="https://github.com/warner/python-versioneer/pull/1231321321">PR 13213213213</a> to the rescue
+		<a href="https://github.com/warner/python-versioneer/pull/1231321321">PR 13213213213</a>.
          </p>
 
           <aside class="notes">
@@ -246,9 +232,9 @@ with matplotlib.feature.extensible_toolbar:
       </section>
       </section>
       <section>
-        <h1>Where next?</h1>
-	<p class="clear">Do I think we should adopt continous delivery in our open source projects?</p>
-	<p class="fragment" style="color: gray;">No<span class="fragment">, but we should dramatically shorten our release cycles with automation.</span></p>
+        <h1>Should we adopt continous delivery?</h1>
+	<p class="fragment">Not necessarily<span class="fragment">, but we should dramatically shorten our release cycles with automation.</span></p>
+        <img class="fragment" src="images/release_process.png" />
 
 	<aside class="notes">        
 	Read:
@@ -257,7 +243,7 @@ with matplotlib.feature.extensible_toolbar:
 	</aside>
       </section>
       <section class="questions-slide">
-        <h1>Questions or insights?</h1>
+        <h1>Questions?</h1>
       </section>
     </div>
     <div class="footer">
