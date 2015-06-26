@@ -1,0 +1,72 @@
+ - Hello, I'm a scientific Python developer at the Met Office, the UK's national weather service.
+   As an organisation, we make heavy use of the sci-py software stack, and I work in a team heavily oriented towards
+   improving the tools available in the open source SciPy community.
+   As an organisation, we care about the development of this community - the aim of this talk is to make us more
+   effective at producing high quality packages through CD.
+
+ - So, what is CD?
+   "a software development discipline where you build software in such a way that
+    the software can be released to production at any time"
+
+   Depending on who you ask, it is really just another part of CI, much of which has been embraced
+   by the community.
+
+ - The key guiding principles are to make it easy for users to get builds of the latest source, and
+   to produce these builds automatically.
+
+ - Why?
+   - Once we've automated the build, the release process becomes as simple as tagging the software,
+   and letting the community know about it.
+   - The sooner users can get hold of new features, the sooner we can learn whether it is useful, and in
+   which ways it can be improved.
+   - If a user makes a contribution, and this quickly becomes part of a release, they will be more inclined
+   to contribute in the future.
+
+   There are some downsides though:
+    - Requires the build to be automated
+    - For each commit, we would be producing many executables.
+
+ - Why I care?
+   I'm the lead developer of cartopy, one of the founding developers of Iris, and a core developer of matplotlib,
+   all of these have unreasonably long release cycles as the cost of releasing is so high.
+   I also want to see the scipy community to shorten their release cycles.
+
+ - What do we need to do?
+   Most packages now use TravisCI for automated testing, and simply adding the following will automatically upload
+   the package to pypi once the tests pass. Damian Avila will go into more detail about TravisCI.
+
+ - There are a couple of complexities we need to deal with to make this workable.
+   Firstly, to benefit from user feedback, we need uniquely referencable versions.
+   Secondly, we need to consider the user experience between releases. Rather than pull functionality from
+   under our user's feed, we can can provide a toggle for major functionality changes.
+
+ - In order to use PyPI, the automated versioning needs to be PEP440 compliant. Imagine the following repository, with a
+   single commit and tag of v1.0. If we add a commit, we want the version to be v1.1.dev1. Now we tag v1.1. We add another
+   commit and tag it v2.0. We now realise that v1.1 had a bug, and make a minor change on the v1.x maintenance branch.
+   Rather than automatically incrementing, we want the v1.x branch to issue a v1.1.post1 version. We merge this commit back
+   into master, which should version at v2.1.dev2 - 2 because we have the original commit, plus the merge commit.
+
+ - With a small extension, versioneer can do this versioning for us.
+
+ - Though not compulsory, it is probably likely that we would want to smooth the user experience when major functionality
+   changes. This isn't new to our community: future print_function
+   There are other cases where this would have been useful - there have been several major refactors of matplotlib's
+   backends - even for our extremely long release cycles, it would have been useful to be able to toggle the change:
+
+   This does mean that the old and new functionality both need to exist in the same codebase for a period, but that can
+   bring its own benefits, particularly at code review time.
+
+ - Given these considerations, the biggest challenge now is to build packages with compiled extensions. To do this,
+   we must build the extensions on each of the target operating systems. Combined TravisCI and AppVeyor give us the
+   coverage to do this, but another provider, CircleCI, gives us the ability to run our own docker containers, so our
+   build can be quicker and can target older dependencies such as libc for wider audience applicablity due to forward
+   compatiblity. For example, if you build a package which uses libc on TravisCI, it will not be usable on RHEL6.
+   However, if you build a package on RHEL6, it would be usable on TravisCI.
+
+ - So, should the scientific python community adopt CD? Not necessarily,
+   - but we should simplify our release processes through automation.
+   I'm hopeful that in the future, the release process will look like: -
+   the github tagging interface.
+
+- Questions?
+
