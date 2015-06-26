@@ -169,9 +169,21 @@ after_sucess:
         </section>
       <section>
           <h1>Versioning</h1>
-	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning.svg">
-	 <p class="fragment clear" >But we don't want to do this by hand...</p>
-	 <p class="fragment" >Versioneer + PR to the rescue</p>
+	 <img class="current-visible" style="position: absolute;" src="images/git_versioning_1.svg">
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_2.svg">
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_3.svg">
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_4.svg">
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_5.svg">
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_6.svg">
+	 <img class="fragment current-visible" style="position: absolute;" src="images/git_versioning_7.svg">
+      </section>
+      <section>
+          <h1>Versioning</h1>
+	 <p class="clear">But we don't want to do this by hand...</p>
+	 <p class="fragment" >
+		<a href="https://github.com/warner/python-versioneer">Versioneer</a> +
+		<a href="https://github.com/warner/python-versioneer/pull/1231321321">PR 13213213213</a> to the rescue
+         </p>
 
           <aside class="notes">
             We want to be able to uniquely reference each change,
@@ -191,10 +203,14 @@ after_sucess:
 
         <section>
           <h1>Toggling major changes</h1>
-	  <ul><li class="fragment">Keep old and new functionality in the same codebase, and toggle between the two, e.g.:
-          <pre class="fragment">
-		<code>
+	  <p class="clear">To maintain continuity between releases, we want to toggle major changes.</p>
+          <pre>
+		<code class="fragment">
 from __future__ import print_function
+		</code>
+		<code class="fragment">
+with matplotlib.feature.extensible_toolbar:
+    ...
 		</code>
 	 </pre>
 	</li>
@@ -207,15 +223,27 @@ from __future__ import print_function
           </aside>
         </section>
       </section>
-
+      <section>
       <section>
         <h1>Deploying binary packages automatically</h1>
 	<p class="clear">To build binary packages, we need access to Windows, OSX and Linux machines.</p>
-	<p class="fragment">Free for Open Source: AppVeyor, TravisCI and CircleCI provide these operating systems respectively.</p>
-	<p class="fragment">Binstar-build is also positioning itself in this space.</p>
-        <aside class="notes">
+	<table style="text-align: center;">
+	<th><td>TravisCI</td><td>AppVeyor</td><td class="fragment" data-fragment-index="1">CircleCI</td></th>
+	<tr><td>OSX</td><td align="center">X</td><td></td><td></td></tr>
+	<tr><td>Linux</td><td align="center">X</td><td></td><td class="fragment" data-fragment-index="1" align="center">X<small><sup>&dagger;</sup></small></td></tr>
+	<tr><td>Windows</td><td></td><td align="center">X</td><td></td></tr>
+	</table>
+	<p  class="fragment" data-fragment-index="1"><small><sup>&dagger;</sup> CircleCI gives us the ability to build using our own docker image, allowing us to support older libc versions.</small></p>
+	<aside class="notes">
           Building binaries.
         </aside>
+      </section>
+
+      <section>
+        <h1>Deploying binary packages automatically</h1>
+	<p class="clear">Example of building a non-Python package with conda <a href="https://github.com/conda-forge/udunits-feedstock">conda-forge/udunits-feedstock</a> for Windows, Linux and OSX.</p>
+        <p class="fragment">Building binary wheels a short extension of this.</p>
+      </section>
       </section>
       <section>
         <h1>Where next?</h1>

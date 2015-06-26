@@ -235,7 +235,7 @@
      inkscape:cx="-2.5764042"
      inkscape:cy="150.62399"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1560"
      inkscape:window-height="1169"
@@ -258,7 +258,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -266,7 +266,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="step6 v2.0.2"
-     style="display:inline">
+     style="display:none">
     <path
        transform="translate(0,-552.36218)"
        style="fill:none;stroke:#000000;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
@@ -311,7 +311,7 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="step5 v1.1.2"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:#ffeeb8;fill-opacity:0.34801767;stroke:#999999;stroke-width:3.15975642;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
        d="m 325.63444,339.84904 172.36556,0 0,36.05936 -172.36556,0 0,-9.01484 -27.45647,-9.01484 27.45647,-9.01485 0,-9.01483 z"
@@ -348,7 +348,7 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="step4 v2.0.1"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:#ffeeb8;fill-opacity:0.34801767;stroke:#999999;stroke-width:3.15975642;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
        d="m 325.63444,274.09149 172.36556,0 0,36.05936 -172.36556,0 0,-9.01484 -27.45647,-9.01484 27.45647,-9.01485 0,-9.01483 z"
@@ -391,7 +391,7 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="step3 v1.1.1"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:#ffeeb8;fill-opacity:0.34801767;stroke:#999999;stroke-width:3.15975642;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
        d="m 325.63444,212.33394 172.36556,0 0,36.05937 -172.36556,0 0,-9.01485 -27.45647,-9.01484 27.45647,-9.01485 0,-9.01483 z"
@@ -452,7 +452,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="step2 v2.0.0"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:none;stroke:#000000;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
        d="m 128,100 c 0,70 0,70 0,70 l 0,0 0,0 0,0 0,0"
@@ -489,7 +489,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="step1 v1.1.0"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:#ffeeb8;fill-opacity:0.34801767;stroke:#999999;stroke-width:3.15975642;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
        d="m 325.63444,86.212767 172.36556,0 0,36.059363 -172.36556,0 0,-9.01484 -27.45647,-9.01485 27.45647,-9.014839 0,-9.014834 z"

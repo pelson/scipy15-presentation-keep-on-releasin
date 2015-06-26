@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="git_versioning.svg">
+   sodipodi:docname="git_versioning_6.svg">
   <defs
      id="defs4">
     <marker
@@ -235,7 +235,7 @@
      inkscape:cx="-2.5764042"
      inkscape:cy="150.62399"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer6"
      showgrid="true"
      inkscape:window-width="1560"
      inkscape:window-height="1169"
@@ -258,7 +258,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
