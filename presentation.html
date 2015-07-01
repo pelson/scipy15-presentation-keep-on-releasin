@@ -16,10 +16,10 @@
   <!-- Printing and PDF exports -->
   <script>
 	var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
+    link.rel = 'stylesheet';
 	link.type = 'text/css';
 	link.href = window.location.search.match( /print-pdf/gi ) ? 'CDN/reveal.js/css/print/pdf.css' : 'CDN/reveal.js/css/print/paper.css';
-                        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
   </script>
   <!--[if lt IE 9]>
   <script src="CDN/reveal.js/lib/js/html5shiv.js"></script>
@@ -268,8 +268,12 @@ with matplotlib.feature.extensible_toolbar:
                         controls: true,
                         progress: true,
                         history: true,
+                        help: true,
                         transition: 'slide', // none/fade/slide/convex/concave/zoom
-
+                        keyboard: {
+                            16: 'Next slide', // go to the next slide when the ENTER key is pressed
+                            '&#8595;': 'Next slide',
+                        },
                         // Optional reveal.js plugins
                         dependencies: [
                                 { src: 'CDN/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -280,6 +284,18 @@ with matplotlib.feature.extensible_toolbar:
                                 { src: 'CDN/reveal.js/plugin/notes/notes.js', async: true }
                         ]
                 });
+  Reveal.configure({
+        keyboard: {
+              40: 'navigateNext', // go to the next slide when the ENTER key is pressed
+              38: 'navigateUp',
+              66: 'navigateRight',
+              27: 'navigateLeft',
+              116: 'navigateLeft',
+              9: 'toggleOverview',
+              115: null,
+                          },
+                  });
+
 
         Reveal.addEventListener('ready', AddBranding);
   </script>
