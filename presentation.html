@@ -74,7 +74,7 @@
 	  <p class="clear">Driving principles:</p>
           <ul>
             <li class="fragment">Make it easy for anybody to get built executables from the HEAD of a repository</li>
-            <li class="fragment">Automate deployment</li>
+            <li class="fragment">Automate build</li>
           </ul>
           <aside class="notes">
             - The principles of continuous integration include "Make
@@ -90,7 +90,6 @@
           <ul>
             <li class="fragment">Fast user feedback</li>
             <li class="fragment">Simplified (trivial) releases</li>
-            <li class="fragment">Encourage community contributions</li>
             <li class="fragment">Easy development version testing</li>
           </ul>
 	  
@@ -232,7 +231,7 @@ with matplotlib.feature.extensible_toolbar:
 	<tr><td>Linux</td><td align="center">X</td><td></td><td class="fragment" data-fragment-index="1" align="center">X<small><sup>&dagger;</sup></small></td></tr>
 	<tr><td>Windows</td><td></td><td align="center">X</td><td></td></tr>
 	</table>
-	<p  class="fragment" data-fragment-index="1"><small><sup>&dagger;</sup> CircleCI gives us the ability to build using our own docker image, allowing us to support older libc versions.</small></p>
+	<p class="fragment" data-fragment-index="1"><small><sup>&dagger;</sup></small> CircleCI gives us the ability to build using our own docker image, allowing us to support older libc versions.</p>
 	<aside class="notes">
           Building binaries.
         </aside>
@@ -242,7 +241,6 @@ with matplotlib.feature.extensible_toolbar:
         <h1>Deploying compiled binary packages automatically</h1>
     <p class="clear">An example project can be found at <a href="https://github.com/pelson/package_with_continuous_delivery">pelson/package_with_continuous_delivery</a>.</p>
 
-	<p class="clear fragment">Similarly, an example of building conda distributions for all 3 OSes can be found at <br> <a href="https://github.com/conda-forge/udunits-feedstock">conda-forge/udunits-feedstock</a>.</p>
       </section>
       </section>
       <section>
