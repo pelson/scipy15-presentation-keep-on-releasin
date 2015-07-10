@@ -62,10 +62,11 @@
         <section>
           <h1>Continuous Delivery</h1>
           <blockquote cite="http://martinfowler.com/bliki/ContinuousDelivery.html">
-            a software development discipline where you build
-            software in such a way that the software can be
-            released to production at any time <cite>Martin
-            Fowler</cite>
+               an approach in which teams ensure that every change to the system is releasable,
+               and that we can release any version at the push of a button.
+               Continuous Delivery aims to make releases boring, so we can deliver
+               frequently and get fast feedback on what users care about.
+            <cite><strong>Thought</strong>Works</cite>
           </blockquote>
         </section>
         <section>
@@ -124,9 +125,6 @@
 
           </ul>
 	  </p>
-	  <p class="fragment">
-Improving user-developer interaction will help the commnunity to focus on the features which have the most value to users.
-</p>
           <aside class="notes">
             - Comes from git tags found with: "git tag | xargs -i git log -1 --format="{} %ad" {} --date=short"
           </aside>
@@ -134,7 +132,7 @@ Improving user-developer interaction will help the commnunity to focus on the fe
       </section>
 
       <section>
-        <h1>How can we deploy packages automatically?</h1><br>
+        <h1>How can we deploy non-compiled packages automatically?</h1><br>
         <p class="fragment" data-fragment-index="1">For pure python
         packages, simply<sup>&dagger;</sup>:</p>
         <pre class="fragment" data-fragment-index="1">
@@ -143,7 +141,7 @@ $> cat .travis.yml
 ...
 
 after_sucess:
-   python setup.py register sdist bdist_wheel upload
+   python setup.py register sdist upload
 </code>
 </pre>
 
@@ -172,6 +170,7 @@ after_sucess:
      <img class="fragment" style="position: absolute;" src="images/versioning.3.svg">     
      <img class="fragment" style="position: absolute;" src="images/versioning.4.svg">
      <img class="fragment" style="position: absolute;" src="images/versioning.5.svg">
+     <img class="fragment" style="position: absolute;" src="images/versioning.6.svg">
      <img class="fragment" style="position: absolute;" src="images/versioning.7.svg">
      <img class="fragment" style="position: absolute;" src="images/versioning.8.svg">
      <img class="fragment" style="position: absolute;" src="images/versioning.9.svg">
@@ -179,12 +178,11 @@ after_sucess:
       </section>
       <section>
           <h1>Versioning</h1>
-	 <p>
-		<a href="https://github.com/warner/python-versioneer">Versioneer</a> +
-		<a href="https://github.com/warner/python-versioneer/pull/1231321321">PR 13213213213</a>.
+	 <p class="clear">
+		<a href="https://github.com/warner/python-versioneer">Versioneer</a> <span class="fragment"> +
+		<a href="https://github.com/warner/python-versioneer/pull/90">PR #90</a></p>
          </p>
-	<p class="fragment">An example project can be found at <a href="https://github.com/pelson/continuous_delivery_pure_python">pelson/continuous_delivery_pure_python</a>.</p>
-
+	
           <aside class="notes">
             We want to be able to uniquely reference each change,
             and maintain sortability (so that newer versions get
@@ -215,6 +213,7 @@ with matplotlib.feature.extensible_toolbar:
 	 </pre>
 	</li>
 	</ul>
+    <p class="fragment">There is already an example of this kind of functionality in <a href="http://scitools.org.uk/iris/docs/latest/iris/iris.html#iris.Future">iris.Future</a>.</p>
           <aside class="notes">
             http://martinfowler.com/bliki/FeatureToggle.html 
 	There
@@ -225,7 +224,7 @@ with matplotlib.feature.extensible_toolbar:
       </section>
       <section>
       <section>
-        <h1>Deploying binary packages automatically</h1>
+        <h1>Deploying compiled binary packages automatically</h1>
 	<p class="clear fragment" data-fragment-index="0">To build binary packages, we need access to Windows, OSX and Linux machines.</p>
 	<table style="text-align: center;" class="fragment" data-fragment-index="0">
 	<th><td>TravisCI</td><td>AppVeyor</td><td class="fragment" data-fragment-index="1">CircleCI</td></th>
@@ -240,9 +239,10 @@ with matplotlib.feature.extensible_toolbar:
       </section>
 
       <section>
-        <h1>Deploying binary packages automatically</h1>
-	<p class="clear">Example of building a non-Python package with conda <a href="https://github.com/conda-forge/udunits-feedstock">conda-forge/udunits-feedstock</a> for Windows, Linux and OSX.</p>
-        <p class="fragment">Building binary wheels a short extension of this.</p>
+        <h1>Deploying compiled binary packages automatically</h1>
+    <p class="clear">An example project can be found at <a href="https://github.com/pelson/package_with_continuous_delivery">pelson/package_with_continuous_delivery</a>.</p>
+
+	<p class="clear fragment">Similarly, an example of building conda distributions for all 3 OSes can be found at <a href="https://github.com/conda-forge/udunits-feedstock">conda-forge/udunits-feedstock</a>.</p>
       </section>
       </section>
       <section>
