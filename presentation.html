@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Keep on releasin': continous delivery for open source</title>
+  <title>Keep on releasin': continuous delivery for open source</title>
   <meta name="description" content="">
   <meta name="author" content="Philip Elson">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -77,7 +77,7 @@
             <li class="fragment">Automate deployment</li>
           </ul>
           <aside class="notes">
-            - The principles of continous integration include "Make
+            - The principles of continuous integration include "Make
             it Easy for Anyone to Get the Latest Executable" and
             "Automate Deployment"....
           </aside>
@@ -97,7 +97,7 @@
           <h3 class="fragment" style="margin-top: 1.5em;">Cons</h3>
           <ul>
             <li class="fragment">Requires build automation</li>
-            <li class="fragment">Many build artefacts</li>
+            <li class="fragment">Many build artifacts</li>
           </ul>
 	  </p>
           <aside class="notes">
@@ -140,7 +140,7 @@
 $> cat .travis.yml
 ...
 
-after_sucess:
+after_success:
    python setup.py register sdist upload
 </code>
 </pre>
@@ -242,12 +242,12 @@ with matplotlib.feature.extensible_toolbar:
         <h1>Deploying compiled binary packages automatically</h1>
     <p class="clear">An example project can be found at <a href="https://github.com/pelson/package_with_continuous_delivery">pelson/package_with_continuous_delivery</a>.</p>
 
-	<p class="clear fragment">Similarly, an example of building conda distributions for all 3 OSes can be found at <a href="https://github.com/conda-forge/udunits-feedstock">conda-forge/udunits-feedstock</a>.</p>
+	<p class="clear fragment">Similarly, an example of building conda distributions for all 3 OSes can be found at <br> <a href="https://github.com/conda-forge/udunits-feedstock">conda-forge/udunits-feedstock</a>.</p>
       </section>
       </section>
       <section>
-        <h1>Should we adopt continous delivery?</h1>
-	<p class="fragment">Not necessarily<span class="fragment">, but we should dramatically shorten our release cycles with automation.</span></p>
+        <h1>Should we adopt continuous delivery?</h1>
+	<p class="clear fragment">Not necessarily<span class="fragment">, but we should dramatically shorten our release cycles with automation.</span></p>
         <img class="fragment" src="images/release_process.png" />
 
 	<aside class="notes">        
