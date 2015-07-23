@@ -1,5 +1,3 @@
-Prerequisites:
+Presented at Scipy 2015:
 
- * reveal.js cloned one level below this gist
- * jquery at the same level
- * Met Office template - at the same level.
+[![Scipy'15 presentation](http://img.youtube.com/vi/x8feIJTJRXY/0.jpg)](http://www.youtube.com/watch?v=x8feIJTJRXY)
